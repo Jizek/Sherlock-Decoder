@@ -280,14 +280,6 @@ Sağ üst köşedeki dil seçiciden 10 farklı dil arasından seçim yapabilirsi
 
 ---
 
-## 🤝 Katkıda Bulunanlar
-
-Bu projeye katkıda bulunan herkese teşekkürler! 🎉
-
-- **Kadir Recep Köse** - Geliştirici
-- **Yusuf Koşman** - Geliştirici
-- **Ubeyd Kahraman** - Geliştirici
-- **Ferhat Özkan** - Geliştirici
 
 ### Katkıda Bulunmak İster misiniz?
 
@@ -312,16 +304,8 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 - RSA anahtarları oturum bazlıdır (sayfa yenilendiğinde silinir)
 - Web Crypto API kullanılarak güvenli şifreleme
 
----
 
-## 📞 İletişim
 
-Sorularınız veya önerileriniz için:
-
-- 🐛 [Issue açın](https://github.com/yourusername/Sherlock-Decoder-main/issues)
-- 💬 [Discussions](https://github.com/yourusername/Sherlock-Decoder-main/discussions)
-
----
 
 ## 🌟 Yıldız Geçmişi
 
@@ -333,7 +317,7 @@ Sorularınız veya önerileriniz için:
   
   ### 🔍 Sen yaz, Sherlock bulsun!
   
-  Made with ❤️ by SHERLOCK Dev Team
+  Made with ❤️ by Sherlock-DEV
   
   **[⬆ Başa Dön](#-sherlock-decoder)**
   
