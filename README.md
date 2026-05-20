@@ -1,7 +1,7 @@
 # 🔍 SHERLOCK DECODER
 
 <div align="center">
-  <img src="assets/Sherlock.png" alt="Sherlock Decoder Logo" width="200"/>
+  <img src="https://www.istockphoto.com/tr/ill%C3%BCstrasyon/sherlock-holmes" alt="Sherlock Decoder Logo" width="200"/>
   
   ### Modern Kriptoloji ve Şifreleme Aracı
   
