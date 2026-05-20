@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="TR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SHERLOCK DECODER </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="icon" href="assets/Sherlock.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="dark-mode">
+    <div class="navbar">
+        <header>
+            <div class="header-left">
+                <img class="Sherlock" src="assets/Sherlock.png" alt="Sherlock">
+                <span id="headerTitle">SHERLOCK DECODER</span>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn" onclick="toggleTheme()" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18zm0-2V5a7 7 0 1 0 0 14z" />
+                    </svg>
+                </button>
+                <div class="lang-container">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    <select id="langSelect" onchange="changeLanguage()">
+                        <option value="tr" selected>TR</option>
+                        <option value="en">EN</option>
+                        <option value="de">DE</option>
+                        <option value="fr">FR</option>
+                        <option value="es">ES</option>
+                        <option value="it">IT</option>
+                        <option value="ru">RU</option>
+                        <option value="jp">JP</option>
+                        <option value="zh">ZH</option>
+                        <option value="ar">AR</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+    <div class="layout">
+        <aside class="sidebar">
+            <h2 id="opsLabel">OPERATIONS</h2>
+            <div class="select-wrapper">
+                <select id="opDropdown" onchange="updateActiveOp()">
+                    <optgroup label="Base Encoding">
+                        <option value="b64e">Base64 Encode</option>
+                        <option value="b64d">Base64 Decode</option>
+                        <option value="b32e">Base32 Encode</option>
+                        <option value="b32d">Base32 Decode</option>
+                        <option value="b58e">Base58 Encode</option>
+                        <option value="b58d">Base58 Decode</option>
+                    </optgroup>
+                    <optgroup label="Classical & Modern">
+                        <option value="vigenereE">Vigenère Encrypt</option>
+                        <option value="vigenereD">Vigenère Decrypt</option>
+                        <option value="xor">XOR (Key needed)</option>
+                        <option value="atbash">Atbash Cipher</option>
+                        <option value="rot13">ROT13</option>
+                        <option value="caesarE">Caesar (+3)</option>
+                        <option value="caesarD">Caesar (-3)</option>
+                    </optgroup>
+                    <optgroup label="Technical">
+                        <option value="hexE">Hex Encode</option>
+                        <option value="hexD">Hex Decode</option>
+                        <option value="binE">Binary Encode</option>
+                        <option value="binD">Binary Decode</option>
+                        <option value="urlE">URL Encode</option>
+                        <option value="urlD">URL Decode</option>
+                        <option value="bf">Brainf*ck to Text</option>
+                    </optgroup>
+                    <optgroup label="Extras">
+                        <option value="nato">NATO Phonetic</option>
+                        <option value="baconE">Bacon Encode</option>
+                        <option value="baconD">Bacon Decode</option>
+                        <option value="reverse">Reverse Text</option>
+                        <option value="morseE">Morse Encode</option>
+                        <option value="morseD">Morse Decode</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="active-status">
+                <span id="activeText">Active:</span>
+                <div id="currentOp">Base64 Encode</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="card">
+                <div class="card-header">
+                    <h2 class="baslik" id="procTitle">Text Processing</h2>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <div id="sherlockPanel" class="stats"
+                            style="display: flex; align-items: center; gap: 5px; background: rgba(168, 85, 247, 0.1); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border);">
+                            <span id="sherlockIcon">🕵️</span>
+                            <span id="sherlockText"
+                                style="color: var(--accent); font-weight: bold; font-size: 11px;">Sen yaz, Sherlock
+                                bulsun!</span>
+                        </div>
+                        <span id="charCount" class="stats">Chars: 0 | Words: 0</span>
+                    </div>
+                </div>
+                <textarea id="inputText" oninput="handleInput()" placeholder="Type text here..."></textarea>
+                <div class="textarea-container">
+                    <textarea id="outputText" readonly placeholder="Result..."></textarea>
+                    <button class="copy-btn" onclick="copyToClipboard('outputText')" title="Copy">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path
+                                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="morsePlayer" class="audio-panel" style="display: none;">
+                    <span id="audioLabel">Morse Audio:</span>
+                    <button onclick="playMorse()">PLAY</button>
+                    <button class="stop-btn" onclick="stopMorse()">STOP</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="rsa">
+                    <h2 class="baslik" id="rsaTitle">Asymmetric (RSA)</h2>
+                    <div class="rsa-actions">
+                        <button onclick="generateRSA()" id="btnGen">Generate</button>
+                        <button onclick="rsaEncrypt()" id="btnEnc">Encrypt</button>
+                        <button onclick="rsaDecrypt()" id="btnDec">Decrypt</button>
+                    </div>
+                </div>
+                <div class="rsa-grid">
+                    <div class="textarea-container">
+                        <textarea id="pubKey" readonly placeholder="Public Key"></textarea>
+                        <button class="copy-btn inner" onclick="copyToClipboard('pubKey')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="textarea-container">
+                        <textarea id="privKey" readonly placeholder="Private Key"></textarea>
+                        <button class="copy-btn inner" onclick="copyToClipboard('privKey')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">© 2025 SHERLOCK Dev. </footer>
+
+    <!--Emeği Geçenler : Kadir Recep Köse, Yusuf Koşman, Ubeyd Kahraman, Ferhat Özkan-->
+    <script src="assets/script/script.js"></script>
+
+</body>
+
+</html>
