@@ -28,7 +28,6 @@
 - [Desteklenen Şifreleme Yöntemleri](#-desteklenen-şifreleme-yöntemleri)
 - [Akıllı Tespit Sistemi](#-akıllı-tespit-sistemi)
 - [Teknolojiler](#-teknolojiler)
-- [Katkıda Bulunanlar](#-katkıda-bulunanlar)
 - [Lisans](#-lisans)
 
 ---
@@ -320,7 +319,7 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
   
   ### 🔍 Sen yaz, Sherlock bulsun!
   
-  Made with ❤️ by Sherlock-DEV
+  Made with ❤️ by Jizek
   
   **[⬆ Başa Dön](#-sherlock-decoder)**
   
