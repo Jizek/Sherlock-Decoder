@@ -2,19 +2,19 @@
 
 <div align="center">
 
-<img src="Desktop/Sherlock-Decoder-main/assets/Sherlock.png" alt="Sherlock Logo" width="200"/>
+<img src="assets/Sherlock.png" alt="Sherlock Logo" width="200"/>
 
 </div>
   
   ### Modern Kriptoloji ve Şifreleme Aracı
   
-  [![GitHub Pages](https://img.shields.io/badge/demo-live-success)](https://yourusername.github.io/Sherlock-Decoder-main/)
+  [![GitHub Pages](https://img.shields.io/badge/demo-live-success)](https://Jizek.github.io/Sherlock-Decoder-main/)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
   [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
   [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
   [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-  **[🌐 Demo](https://yourusername.github.io/Sherlock-Decoder-main/) | [📖 Dokümantasyon](#özellikler) | [🐛 Hata Bildir](https://github.com/yourusername/Sherlock-Decoder-main/issues)**
+  **[🌐 Demo](https://Jizek.github.io/Sherlock-Decoder-main/) | [📖 Dokümantasyon](#özellikler) | [🐛 Hata Bildir](https://github.com/Jizek/Sherlock-Decoder-main/issues)**
 </div>
 
 ---
@@ -110,7 +110,7 @@ Sherlock Decoder, girdiğiniz metni otomatik olarak analiz eder ve muhtemel şif
 
 1. **Repoyu klonlayın:**
 ```bash
-git clone https://github.com/yourusername/Sherlock-Decoder-main.git
+git clone https://github.com/Jizek/Sherlock-Decoder-main.git
 cd Sherlock-Decoder-main
 ```
 
@@ -134,7 +134,7 @@ http://localhost:8000
 2. **Pages sekmesini açın**
 3. **Source olarak `main` branch'i seçin**
 4. **Save'e tıklayın**
-5. **Siteniz şu adreste yayınlanacak:** `https://yourusername.github.io/Sherlock-Decoder-main/`
+5. **Siteniz şu adreste yayınlanacak:** `https://Jizek.github.io/Sherlock-Decoder-main/`
 
 ### Özel Domain Ekleme
 
@@ -157,7 +157,7 @@ Value: 185.199.108.153
 
 Type: CNAME
 Name: www
-Value: yourusername.github.io
+Value: Jizek.github.io
 ```
 
 3. **GitHub Settings > Pages'de custom domain'i girin**
@@ -311,7 +311,7 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 
 ## 🌟 Yıldız Geçmişi
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/Sherlock-Decoder-main&type=Date)](https://star-history.com/#yourusername/Sherlock-Decoder-main&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=Jizek/Sherlock-Decoder-main&type=Date)](https://star-history.com/#Jizek/Sherlock-Decoder-main&Date)
 
 ---
 

@@ -317,7 +317,42 @@ body.rtl {
     }
 }
 
+/* Key Input Area */
+.key-input-area {
+    display: none;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
 
+.key-input-area.visible {
+    display: block;
+}
+
+.key-input-area label {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.key-input-area input {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    color: var(--accent);
+    font-family: inherit;
+    font-weight: bold;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.key-input-area input:focus {
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
+}
 
 
 @media (max-width: 850px) {

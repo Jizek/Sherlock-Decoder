@@ -3,8 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SHERLOCK DECODER </title>
+    <title>SHERLOCK DECODER — Modern Kriptoloji ve Şifreleme Aracı</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sherlock Decoder — 40+ şifreleme ve kodlama yöntemi destekleyen modern kriptoloji aracı. Base64, AES, RSA, SHA, Morse ve daha fazlası.">
+    <meta name="keywords" content="decoder, encoder, cipher, kriptoloji, şifreleme, base64, rsa, aes, sha256, morse code">
+    <meta name="author" content="Jizek">
+    <meta property="og:title" content="SHERLOCK DECODER — Modern Kriptoloji Aracı">
+    <meta property="og:description" content="40+ şifreleme yöntemi destekleyen, akıllı tespit sistemli modern kriptoloji aracı.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/Sherlock.png">
 
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="icon" href="assets/Sherlock.png" type="image/x-icon" />
@@ -69,6 +76,8 @@
                         <option value="rot13">ROT13</option>
                         <option value="caesarE">Caesar (+3)</option>
                         <option value="caesarD">Caesar (-3)</option>
+                        <option value="railfenceE">Rail Fence Encrypt</option>
+                        <option value="railfenceD">Rail Fence Decrypt</option>
                     </optgroup>
                     <optgroup label="Technical">
                         <option value="hexE">Hex Encode</option>
@@ -79,6 +88,15 @@
                         <option value="urlD">URL Decode</option>
                         <option value="bf">Brainf*ck to Text</option>
                     </optgroup>
+                    <optgroup label="Hash">
+                        <option value="sha256">SHA-256</option>
+                        <option value="sha512">SHA-512</option>
+                        <option value="md5">MD5</option>
+                    </optgroup>
+                    <optgroup label="AES Encryption">
+                        <option value="aesE">AES-GCM Encrypt</option>
+                        <option value="aesD">AES-GCM Decrypt</option>
+                    </optgroup>
                     <optgroup label="Extras">
                         <option value="nato">NATO Phonetic</option>
                         <option value="baconE">Bacon Encode</option>
@@ -86,12 +104,21 @@
                         <option value="reverse">Reverse Text</option>
                         <option value="morseE">Morse Encode</option>
                         <option value="morseD">Morse Decode</option>
+                        <option value="polybiusE">Polybius Encode</option>
+                        <option value="polybiusD">Polybius Decode</option>
+                        <option value="tapE">Tap Code Encode</option>
+                        <option value="tapD">Tap Code Decode</option>
                     </optgroup>
                 </select>
             </div>
             <div class="active-status">
                 <span id="activeText">Active:</span>
                 <div id="currentOp">Base64 Encode</div>
+            </div>
+
+            <div id="keyInputArea" class="key-input-area">
+                <label id="keyLabel">KEY</label>
+                <input type="text" id="keyInput" placeholder="Enter key..." oninput="handleInput()">
             </div>
         </aside>
 
@@ -113,7 +140,7 @@
                 <textarea id="inputText" oninput="handleInput()" placeholder="Type text here..."></textarea>
                 <div class="textarea-container">
                     <textarea id="outputText" readonly placeholder="Result..."></textarea>
-                    <button class="copy-btn" onclick="copyToClipboard('outputText')" title="Copy">
+                    <button class="copy-btn" onclick="copyToClipboard('outputText', this)" title="Copy">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                             <path
                                 d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
@@ -139,7 +166,7 @@
                 <div class="rsa-grid">
                     <div class="textarea-container">
                         <textarea id="pubKey" readonly placeholder="Public Key"></textarea>
-                        <button class="copy-btn inner" onclick="copyToClipboard('pubKey')">
+                        <button class="copy-btn inner" onclick="copyToClipboard('pubKey', this)">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
                                 <path
                                     d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
@@ -148,7 +175,7 @@
                     </div>
                     <div class="textarea-container">
                         <textarea id="privKey" readonly placeholder="Private Key"></textarea>
-                        <button class="copy-btn inner" onclick="copyToClipboard('privKey')">
+                        <button class="copy-btn inner" onclick="copyToClipboard('privKey', this)">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
                                 <path
                                     d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
@@ -159,10 +186,8 @@
             </section>
         </main>
     </div>
-    <footer class="footer">© 2025 SHERLOCK Dev. </footer>
-
-    <!--Emeği Geçenler : Kadir Recep Köse, Yusuf Koşman, Ubeyd Kahraman, Ferhat Özkan-->
-    <script src="assets/script/script.js"></script>
+    <footer class="footer">© <span id="footerYear"></span> SHERLOCK Dev. </footer>
+<script src="assets/script/script.js"></script>
 
 </body>
 
